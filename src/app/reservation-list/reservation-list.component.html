@@ -1,0 +1,30 @@
+<div>
+    <h2>Reservations List</h2>
+    <table *ngIf="reservations && reservations.length; else noReservations">
+        <thead>
+            <tr>
+                <th>Check-In Date</th>
+                <th>Check-Out Date</th>
+                <th>Guest Name</th>
+                <th>Guest Email</th>
+                <th>Room Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations">
+                <td>{{ reservation.checkInDate | date }}</td>
+                <td>{{ reservation.checkOutDate | date }}</td>
+                <td>{{ reservation.guestName }}</td>
+                <td>{{ reservation.guestEmail }}</td>
+                <td>{{ reservation.roomNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #noReservations>
+        <p>No reservations found.</p>
+    </ng-template>
+    <div>
+        <button [routerLink]="['']">Home</button>
+        <button [routerLink]="['/new']">Add Reservation</button>
+    </div>
+</div>
