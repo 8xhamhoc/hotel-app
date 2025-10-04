@@ -8,6 +8,8 @@
                 <th>Guest Name</th>
                 <th>Guest Email</th>
                 <th>Room Number</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +19,8 @@
                 <td>{{ reservation.guestName }}</td>
                 <td>{{ reservation.guestEmail }}</td>
                 <td>{{ reservation.roomNumber }}</td>
+                <td><button (click)="deleteReservation(reservation.id)">Delete</button></td>
+                <td><button [routerLink]="['/edit', reservation.id]">Edit</button></td>
             </tr>
         </tbody>
     </table>
