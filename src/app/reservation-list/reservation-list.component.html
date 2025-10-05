@@ -1,6 +1,8 @@
+<app-home></app-home>
+
 <div>
-    <h2>Reservations List</h2>
-    <table *ngIf="reservations && reservations.length; else noReservations">
+    <h3 class="mt-5 mb-3">Reservations List</h3>
+    <table class="table table-striped" *ngIf="reservations && reservations.length; else noReservations">
         <thead>
             <tr>
                 <th>Check-In Date</th>
@@ -8,8 +10,7 @@
                 <th>Guest Name</th>
                 <th>Guest Email</th>
                 <th>Room Number</th>
-                <th></th>
-                <th></th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +20,10 @@
                 <td>{{ reservation.guestName }}</td>
                 <td>{{ reservation.guestEmail }}</td>
                 <td>{{ reservation.roomNumber }}</td>
-                <td><button (click)="deleteReservation(reservation.id)">Delete</button></td>
-                <td><button [routerLink]="['/edit', reservation.id]">Edit</button></td>
+                <td>
+                    <button class="btn btn-sm btn-danger mx-1" (click)="deleteReservation(reservation.id)">Delete</button>
+                    <button class="btn btn-sm btn-secondary mx-1" [routerLink]="['/edit', reservation.id]">Edit</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -28,7 +31,7 @@
         <p>No reservations found.</p>
     </ng-template>
     <div>
-        <button [routerLink]="['']">Home</button>
-        <button [routerLink]="['/new']">Add Reservation</button>
+        <button class="btn btn-primary mx-1" [routerLink]="['']">Home</button>
+        <button class="btn btn-primary mx-1" [routerLink]="['/new']">Add Reservation</button>
     </div>
 </div>

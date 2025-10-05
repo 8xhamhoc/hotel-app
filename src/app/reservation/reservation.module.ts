@@ -5,6 +5,7 @@ import { ReservationListComponent } from '../reservation-list/reservation-list.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from '@angular/router';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule // This offers Reactive Forms Validation(validate form in TypeScript class) + Template Driven Forms Validation(validate form in HTML template)
     ,
     AppRoutingModule,
-    RouterModule
-]
+    RouterModule,
+    HomeModule
+  ]
 })
 export class ReservationModule { }

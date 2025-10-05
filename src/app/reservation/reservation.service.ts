@@ -25,6 +25,7 @@ export class ReservationService {
   addReservation(reservation: Reservation): void {
     reservation.id = Math.random().toString(36).substr(2, 9); // Simple ID generation
     this.reservations.push(reservation);
+    console.log('Added reservation with id:', reservation.id);
     localStorage.setItem('reservations', JSON.stringify(this.reservations));
   }
 
@@ -36,9 +37,11 @@ export class ReservationService {
     }
   }
 
-  updateReservation(updatedReservation: Reservation): void {
-    let index = this.reservations.findIndex(res => res.id === updatedReservation.id);
+  updateReservation(id: string, updatedReservation: Reservation): void {
+    console.log('Update reservation called with id:', id, 'and data:', updatedReservation.id);
+    let index = this.reservations.findIndex(res => res.id === id);
     if (index !== -1) {
+      console.log('Updating reservation with id:', id);
       this.reservations[index] = updatedReservation;
       localStorage.setItem('reservations', JSON.stringify(this.reservations));
     }
